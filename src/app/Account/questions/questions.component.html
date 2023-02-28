@@ -1,0 +1,381 @@
+<section class="main-container col1-layout">
+  <div class="main container">
+    <div class="col-main">
+      <div class="cart wow bounceInUp animated">
+        <div class="row">
+          <div id="content" class="col-sm-12">
+            <div class="page-title">
+              <h2>عربة التسوق </h2>
+            </div>
+            <form action="http://veritodemo4.magikthemes.com/index.php?route=checkout/cart/edit" method="post"
+              enctype="multipart/form-data">
+              <div class="table-responsive">
+                <table class="data-table cart-table" id="shopping-cart-table">
+                  <thead>
+                    <tr>
+                      <td class="text-center">صورة</td>
+                      <td class="text-left">اسم المنتج</td>
+                      <td class="text-left">نموذج</td>
+                      <td class="text-left">كمية</td>
+                      <td class="text-right">سعر الوحدة</td>
+                      <td class="text-right">المجموع</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center"> <a
+                          href="http://veritodemo4.magikthemes.com/index.php?route=product/product&amp;product_id=2015"><img
+                            src="http://veritodemo4.magikthemes.com/image/cache/catalog/productimage/product24-75x91.jpg"
+                            alt="Table Lamp In Steam Beach Wood" title="Table Lamp In Steam Beach Wood"
+                            class="img-thumbnail"></a>
+                      </td>
+                      <td class="text-left"><a
+                          href="http://veritodemo4.magikthemes.com/index.php?route=product/product&amp;product_id=2015">Table
+                          Lamp In Steam Beach Wood</a>
+                        <br>
+                        <small>Reward Points: 1200</small>
+                      </td>
+                      <td class="text-left">Product 2015</td>
+                      <td class="text-left">
+                        <div class="input-group btn-block" style="max-width: 200px;">
+                          <input type="text" name="quantity[212]" value="3" size="1" class="form-control">
+                          <span class="input-group-btn">
+                            <button type="submit" data-toggle="tooltip" title="" class="btn btn-primary"
+                              data-original-title="Update"><i class="fa fa-refresh"></i></button>
+                            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger"
+                              onclick="cart.remove('212');" data-original-title="Remove"><i
+                                class="fa fa-times-circle"></i></button>
+                          </span>
+                        </div>
+                      </td>
+                      <td class="text-right">$100.00</td>
+                      <td class="text-right">$300.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+            <div class="row">
+
+              <div class="col-sm-8 col-xs-12">
+                <h2>What would you like to do next?</h2>
+                <p>Choose if you have a discount code or reward points you want to use or would like to estimate your
+                  delivery cost.</p>
+                <div class="panel-group" id="accordion">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#collapse-coupon" class="accordion-toggle" data-toggle="collapse"
+                          data-parent="#accordion">Use Coupon Code <i class="fa fa-caret-down"></i></a></h4>
+                    </div>
+                    <div id="collapse-coupon" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <label class="col-sm-2 control-label" for="input-coupon">Enter your coupon here</label>
+                        <div class="input-group">
+                          <input type="text" name="coupon" value="" placeholder="Enter your coupon here"
+                            id="input-coupon" class="form-control">
+                          <span class="input-group-btn">
+                            <input type="button" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..."
+                              class="btn btn-primary">
+                          </span>
+                        </div>
+                        <script type="text/javascript">
+$('#button-coupon').on('click', function() {
+$.ajax({
+url: 'index.php?route=extension/total/coupon/coupon',
+type: 'post',
+data: 'coupon=' + encodeURIComponent($('input[name=\'coupon\']').val()),
+dataType: 'json',
+beforeSend: function() {
+$('#button-coupon').button('loading');
+},
+complete: function() {
+$('#button-coupon').button('reset');
+},
+success: function(json) {
+$('.alert').remove();
+
+if (json['error']) {				
+$('#content').parent().before('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+$('html, body').animate({ scrollTop: 0 }, 'slow');
+}
+
+if (json['redirect']) {
+location = json['redirect'];
+}
+}
+});
+});
+//--></script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title"><a href="#collapse-payment-address" data-toggle="collapse"
+                          data-parent="#accordion" class="accordion-toggle" aria-expanded="true"><span
+                            class="number">2</span> تفاصيل الفاتورة <i class="fa fa-caret-down"></i></a></h4>
+                    </div>
+                    <div class="panel-collapse collapse in" id="collapse-payment-address" aria-expanded="true">
+                      <div class="panel-body">
+                        <form class="form-horizontal">
+                          <div id="payment-new">
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-firstname"> الاسم الأول</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="firstname" value="" placeholder="الاسم الأول"
+                                  id="input-payment-firstname" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-lastname">اسم العائلة</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="lastname" value="" placeholder="اسم العائلة"
+                                  id="input-payment-lastname" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-address-1">العنوان</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="address_1" value="" placeholder="العنوان"
+                                  id="input-payment-address-1" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-address-1">رقم الموبايل</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="address_1" value="" placeholder="رقم الموبايل"
+                                  id="input-payment-address-1" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-address-1">الايميل</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="address_1" value="" placeholder="الايميل"
+                                  id="input-payment-address-1" class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-city">مدينة</label>
+                              <div class="col-sm-10">
+                                <input type="text" name="city" value="" placeholder="مدينة" id="input-payment-city"
+                                  class="form-control">
+                              </div>
+                            </div>
+                            <div class="form-group required">
+                              <label class="col-sm-2 control-label" for="input-payment-country">المحافظة</label>
+                              <div class="col-sm-10">
+                                <select name="country_id" id="input-payment-country" class="form-control">
+                                  <option value=""> --- الرجاء الاختيار --- </option>
+                                  <option value="244">القاهره</option>
+                                  <option value="1">الجيزه</option>
+                                  <option value="2">بور سعيد</option>
+                                  <option value="3">الاسماعيليه</option>
+                                  <option value="4">الشرقية</option>
+                                  <option value="5">الإسكندرية</option>
+                                  <option value="6">أسوان</option>
+                                  <option value="7">أسيوط</option>
+                                  <option value="8">البحيرة</option>
+                                  <option value="9">بني سويف</option>
+                                  <option value="10">الدقهلية</option>
+                                  <option value="11">دمياط</option>
+                                  <option value="12">الفيوم</option>
+                                  <option value="252">الغربية</option>
+                                  <option value="13">كفر الشيخ</option>
+                                  <option value="14">الأقصر</option>
+                                  <option value="15"> مطروح</option>
+                                  <option value="16">المنيا</option>
+                                  <option value="17">المنوفية</option>
+                                  <option value="18">الوادي الجديد</option>
+                                  <option value="19">القليوبية</option>
+                                  <option value="20">سوهاج</option>
+                                  <option value="21">السويس</option>
+                                  <option value="22">قنا</option>
+
+                                </select>
+                              </div>
+                            </div>
+
+                          </div>
+                        </form>
+                        <script type="text/javascript">
+$('input[name=\'payment_address\']').on('change', function() {
+if (this.value == 'new') {
+$('#payment-existing').hide();
+$('#payment-new').show();
+} else {
+$('#payment-existing').show();
+$('#payment-new').hide();
+}
+});
+//--></script>
+                        <script type="text/javascript">
+// Sort the custom fields
+$('#collapse-payment-address .form-group[data-sort]').detach().each(function() {
+if ($(this).attr('data-sort') >= 0 && $(this).attr('data-sort') <= $('#collapse-payment-address .form-group').length-2) {
+$('#collapse-payment-address .form-group').eq(parseInt($(this).attr('data-sort'))+2).before(this);
+}
+
+if ($(this).attr('data-sort') > $('#collapse-payment-address .form-group').length-2) {
+$('#collapse-payment-address .form-group:last').after(this);
+}
+
+if ($(this).attr('data-sort') == $('#collapse-payment-address .form-group').length-2) {
+$('#collapse-payment-address .form-group:last').after(this);
+}
+
+if ($(this).attr('data-sort') < -$('#collapse-payment-address .form-group').length-2) {
+$('#collapse-payment-address .form-group:first').before(this);
+}
+});
+//--></script>
+                        <script type="text/javascript">
+$('#collapse-payment-address button[id^=\'button-payment-custom-field\']').on('click', function() {
+var node = this;
+
+$('#form-upload').remove();
+
+$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+$('#form-upload input[name=\'file\']').trigger('click');
+
+if (typeof timer != 'undefined') {
+clearInterval(timer);
+}
+
+timer = setInterval(function() {
+if ($('#form-upload input[name=\'file\']').val() != '') {
+clearInterval(timer);
+
+$.ajax({
+url: 'index.php?route=tool/upload',
+type: 'post',
+dataType: 'json',
+data: new FormData($('#form-upload')[0]),
+cache: false,
+contentType: false,
+processData: false,
+beforeSend: function() {
+$(node).button('loading');
+},
+complete: function() {
+$(node).button('reset');
+},
+success: function(json) {
+$(node).parent().find('.text-danger').remove();
+
+if (json['error']) {
+$(node).parent().find('input[name^=\'custom_field\']').after('<div class="text-danger">' + json['error'] + '</div>');
+}
+
+if (json['success']) {
+alert(json['success']);
+
+$(node).parent().find('input[name^=\'custom_field\']').val(json['code']);
+}
+},
+error: function(xhr, ajaxOptions, thrownError) {
+alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+}
+});
+}
+}, 500);
+});
+//--></script>
+                        <script type="text/javascript">
+$('.date').datetimepicker({
+pickTime: false
+});
+
+$('.time').datetimepicker({
+pickDate: false
+});
+
+$('.datetime').datetimepicker({
+pickDate: true,
+pickTime: true
+});
+//--></script>
+                        <script type="text/javascript">
+$('#collapse-payment-address select[name=\'country_id\']').on('change', function() {
+$.ajax({
+url: 'index.php?route=checkout/checkout/country&country_id=' + this.value,
+dataType: 'json',
+beforeSend: function() {
+$('#collapse-payment-address select[name=\'country_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+},
+complete: function() {
+$('.fa-spin').remove();
+},
+success: function(json) {
+if (json['postcode_required'] == '1') {
+$('#collapse-payment-address input[name=\'postcode\']').parent().parent().addClass('required');
+} else {
+$('#collapse-payment-address input[name=\'postcode\']').parent().parent().removeClass('required');
+}
+
+html = '<option value=""> --- Please Select --- </option>';
+
+if (json['zone'] && json['zone'] != '') {
+for (i = 0; i < json['zone'].length; i++) {
+html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+if (json['zone'][i]['zone_id'] == '3506') {
+html += ' selected="selected"';
+}
+
+html += '>' + json['zone'][i]['name'] + '</option>';
+}
+} else {
+html += '<option value="0" selected="selected"> --- None --- </option>';
+}
+
+$('#collapse-payment-address select[name=\'zone_id\']').html(html);
+},
+error: function(xhr, ajaxOptions, thrownError) {
+alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+}
+});
+});
+
+$('#collapse-payment-address select[name=\'country_id\']').trigger('change');
+//--></script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-sm-4 col-xs-12">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td class="text-right"><strong>Sub-Total:</strong></td>
+                      <td class="text-right">$300.00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-right"><strong>Total:</strong></td>
+                      <td class="text-right">$300.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="buttons clearfix">
+              <div class="pull-left">
+                <!-- <a href="" class="btn btn-default"></a> -->
+                <button onclick="window.location='#'" class="button btn-continue" type="button"><span><span>مواصلة
+                      التسوق</span></span></button>
+              </div>
+              <div class="pull-right">
+                <!-- <a href="" class="btn btn-primary"></a> -->
+                <button onclick="window.location='#'" class="button btn-proceed-checkout"
+                  type="button"><span>الدفع</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,200 @@
+<body class="common-home ">
+    <div id="page">
+<footer>
+    <div class="footer-inner">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-lg-4 pull-left">
+            <div class="footer-column-last">
+              <div class="footer-column-logo">
+                 <a href="#"><img src="../../../assets/catalog/view/theme/verito2/image/footer-logo.jpg"alt="logo"> </a> 
+              </div>
+              <div class="newsletter-wrap">
+                <h4>اشترك فى نشرتنا</h4>
+                <input type="text" name="subscriber_email" id="subscriber_email" value=""
+                  placeholder="بريدك الاكتروني" class="form-control input-text required-entry validate-email" />
+                <button class="subscribe" type="button" name="submit_newsletter" id="submit_newsletter"
+                  onclick="return MgkEmailValidation()"><span> اشترك الأن</span></button>
+                <p id="subscriber_content" class="required"></p>
+
+                <script>
+                  function MgkEmailValidation(mail) {
+                    subscribemail = document.getElementById("subscriber_email").value;
+                    var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+                    if (subscribemail != '') {
+
+                      if (subscribemail.search(emailRegEx) != -1) {
+
+
+                        email = document.getElementById("subscriber_email").value;
+                        var xmlhttp;
+                        if (window.XMLHttpRequest) {
+                          xmlhttp = new XMLHttpRequest();
+                        } else {
+                          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+
+                        xmlhttp.onreadystatechange = function () {
+                          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("subscriber_content").innerHTML = xmlhttp.responseText;
+                          }
+                        }
+                        xmlhttp.open("GET.html", "index87f4.html?route=extension/module/newslettersubscription/addsubscriberemail&amp;email=" + email, true);
+                        xmlhttp.send();
+                        return (true);
+                      }
+                      document.getElementById("subscriber_content").innerHTML = "Please enter an email address.";
+                      return (false);
+                    }
+                    document.getElementById("subscriber_content").innerHTML = "This is a required field.";
+                    return false;
+                  }  
+                </script>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-lg-8">
+            <div class="footer-column pull-right">
+              <h4>تحتاج الى مساعدة ؟</h4>
+              <ul class="links">
+                <li class="first">
+                <li><a routerLink="index71ba.html?route=account/return/add"><i class="fa fa-envelope footer-right">
+                </i>abc@example.com</a></li>
+                <li><a routerLink="indexe223.html?route=account/wishlist"><i class="fa fa-phone footer-right"></i> +201006607017 </a></li>
+                <li><a routerLink="indexe223.html?route=account/order"><i class="fa fa-map-marker footer-right"></i>
+                  العنوان القاهرة- كورنيش النيل -حدائق حلوان</a></li>
+              </ul>
+            </div>
+            <div class="footer-column pull-right">
+              <ul class="links">
+                <li class="first"><a routerLink="/Ahouse">عن بيت الناصر</a></li>
+                <li><a routerLink="index4dd2.html?route=account/voucher">الشروط والاحكام</a></li>
+                <li><a routerLink="Privacy">الخصوصية</a></li>
+
+                <li><a routerLink="indexe637.html?route=magikblog/article">وظائف</a></li>
+              </ul>
+            </div>
+            <div class="footer-column pull-right">
+              <ul class="links">
+                <li class="first"><a routerLink="Footer2">الضمان</a></li>
+                <li class=""><a routerLink="/Recovery">سياسة ارجاع السلع</a></li>
+                <li class=""><a routerLink="/payingoff">طرق الدفع</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-8 col-xs-9 social pull-right">
+            <ul>
+              <li class="fb pull-left"><a href="http://facebook.com/Magikcommerce" target="_blank"></a></li>
+              <li class="tw pull-left"><a href="http://twitter.com/qtwitt" target="_blank"></a></li>
+              <li class="googleplus pull-left"><a href="http://www.magikcommerce.com/" target="_blank"></a></li>
+              <li class="pintrest pull-left"><a href="http://www.pinterest.com/magikcommerce/"
+                  target="_blank"></a></li>
+              <li class="linkedin pull-left"><a href="http://www.linkedin.com/company/magikcommerce"
+                  target="_blank"></a></li>
+              <li class="youtube pull-left"><a href="https://plus.google.com/108548966199168316090/videos"
+                  target="_blank"></a></li>
+            </ul>
+          </div>
+          <div class=" col-lg-4 col-sm-12 col-xs-12 payment-accept pull-left">
+            <div>
+              <img alt="payment1" src="../../../assets/catalog/view/theme/verito2/image/payment-1.png">
+              <img alt="payment2" src="../../../assets/catalog/view/theme/verito2/image/payment-2.png">
+              <img alt="payment3" src="../../../assets/catalog/view/theme/verito2/image/payment-3.png">
+              <img alt="payment4" src="../../../assets/catalog/view/theme/verito2/image/payment-4.png">
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12 col-xs-12 coppyrigh"> 2جميع الحقوق محفوظة بيت الناصر © 022</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div> <!-- page id -->
+<div id="mobile-menu">
+  <div class="mobile-menu-inner">
+    <ul>
+      <li>
+        <div class="mm-search">
+          <div id="search1">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button id="mm-submit-button-search-header" class="btn btn-default">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+              <input id="srch-term" class="form-control simple" type="text" name="search_mm" maxlength="70" value=""
+                placeholder="Search here..">
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <a href="/Center">الرئيسيه</a>
+      </li>
+      <li><a href="#"> غرفة المعيشة</a>
+        <ul>
+          <li><a href="/Shazlunj">شازلونج</a>
+
+          </li>
+          <li><a href="/Karasi">كراسي</a>
+          </li>
+          <li><a href="/Kanab">كنب</a>
+          </li>
+          <li><a href="/Corner">ركنه </a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#"> غرفة النوم</a>
+        <ul>
+          <li><a href="/bedroom">رائيسه</a>
+
+          </li>
+          <li><a href="/Childrens">اطفال</a>
+          </li>
+          <li><a href="/Cupboard">دولاب</a>
+          </li>
+          <li><a href="/Beds">سرير </a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">  ترابيزة</a>
+        <ul>
+          <li><a href="/Screen"> ترابيزة شاشة</a>
+
+          </li>
+          <li><a href="/MDF">MDF ترابيزة</a>
+          </li>
+          <li><a href="/Steele"> ترابيزة ستيل</a>
+          </li>
+          <li><a href="/Karasi">كراسي</a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="/Safaruh">  غرفة سفره</a>
+      </li>
+      <li><a href="/Antarih">  غرفة انتريه </a>
+      </li>
+    </ul>
+    <div class="top-links">
+
+      <ul class="links">
+        <li><a href="/Accoun" title="My Account">My Account</a></li>
+        <li><a href="/Accoun" id="wishlist-total" title="Wish List">Wish List</a></li>
+        <li><a href="/Accoun" title="Checkout">Checkout</a></li>
+        <li><a href="/Accoun"><span>Blog</span></a></li>
+        <li class="last">
+          <a href="/Accoun">Login</a>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><!-- mobile-menu -->
+</body>
